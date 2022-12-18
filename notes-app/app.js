@@ -1,5 +1,7 @@
-const fs = require("fs");
+const validator = require("validator");
+const getNotes = require("./notes");
+const msg = getNotes();
+console.log(msg);
 
-fs.writeFileSync("notes.txt", "Jhon pabz gaming.");
-fs.appendFileSync("notes.txt", " Second sentence here.");
-fs.appendFileSync("notes.txt", " Third sentence here.");
+console.log(validator.isEmail("jhon@yahoo.com"));
+console.log(validator.isURL("jhon@yahoo"));
