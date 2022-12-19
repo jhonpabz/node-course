@@ -4,12 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.1",
+    "nodemon": "^1.18.5",
     "validator": "^13.7.0"
   }
 }
