@@ -1,7 +1,8 @@
 const chalk = require("chalk");
+const yargs = require("yargs");
 const getNotes = require("./notes");
-const msg = getNotes();
-console.log(msg);
 
-console.log(chalk.bgGreen.bold("Success!"));
-console.log(chalk.red.inverse.bold("Error!"));
+// Customize yargs version
+yargs.version("1.1.0");
+
+console.log(yargs.argv);
