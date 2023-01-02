@@ -23,6 +23,24 @@ yargs.command({
   },
 });
 
+// Create list command
+yargs.command({
+  command: "list",
+  describe: "list a note",
+  handler: function () {
+    console.log("Listing note");
+  },
+});
+
+// Create read command
+yargs.command({
+  command: "read",
+  describe: "read a note",
+  handler: function () {
+    console.log("Reading note");
+  },
+});
+
 // add, remove, read, list
 
 console.log(yargs.argv);
