@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const fs = require("fs");
 const getNotes = () => {
   return "Your notes...";
@@ -23,6 +24,21 @@ const addNote = (title, body) => {
   }
 };
 
+const removeNote = (title) => {
+  const notes = loadNotes();
+
+  const filteredNotes = notes.filter((note) => {
+    return note.title !== title;
+  });
+
+  if (notes.length > filteredNotes.length) {
+    console.log(chalk.bgGreen("Note removed!"));
+    saveNotes(filteredNotes);
+  } else {
+    console.log(chalk.bgRed("No note found!"));
+  }
+};
+
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", dataJSON);
@@ -35,24 +51,6 @@ const loadNotes = () => {
     return JSON.parse(dataJSON);
   } catch (err) {
     return [];
-  }
-};
-
-const removeNote = (title) => {
-  const notes = loadNotes();
-
-  const checkNotes = notes.filter((note) => {
-    return note.title === title;
-  });
-  if (checkNotes.length === 0) {
-    console.log("No data found!");
-  } else {
-    const filteredNotes = notes.filter((note) => {
-      return note.title !== title;
-    });
-    console.log(filteredNotes, "filteredNotes");
-    saveNotes(filteredNotes);
-    console.log(title, " has been removed!");
   }
 };
 
