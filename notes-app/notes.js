@@ -38,7 +38,26 @@ const loadNotes = () => {
   }
 };
 
+const removeNote = (title) => {
+  const notes = loadNotes();
+
+  const checkNotes = notes.filter((note) => {
+    return note.title === title;
+  });
+  if (checkNotes.length === 0) {
+    console.log("No data found!");
+  } else {
+    const filteredNotes = notes.filter((note) => {
+      return note.title !== title;
+    });
+    console.log(filteredNotes, "filteredNotes");
+    saveNotes(filteredNotes);
+    console.log(title, " has been removed!");
+  }
+};
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
+  removeNote: removeNote,
 };
