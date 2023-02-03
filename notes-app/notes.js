@@ -42,12 +42,26 @@ const saveNotes = (notes) => {
   fs.writeFileSync('notes.json', dataJSON);
 };
 
-const listNote = () => {
+const listNotes = () => {
   const notes = loadNotes();
 
   console.log(chalk.bgGreen('Your Notes:'));
   // Print all notes title
   notes.forEach((notes) => console.log(notes.title));
+};
+
+const readNote = (title) => {
+  const notes = loadNotes();
+
+  const findNote = notes.find((note) => note.title === title);
+
+  if (findNote) {
+    console.log(findNote);
+    console.log(chalk.bgGreen(findNote.title));
+    console.log(findNote.body);
+  } else {
+    console.log(chalk.bgRed('No note found!'));
+  }
 };
 
 const loadNotes = () => {
@@ -64,5 +78,6 @@ module.exports = {
   getNotes,
   addNote,
   removeNote,
-  listNote,
+  listNotes,
+  readNote,
 };
