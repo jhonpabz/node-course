@@ -3,10 +3,11 @@ const request = require('postman-request');
 
 const weatherApiKey = process.env.WEATHERSTACK_API_KEY;
 const url =
-  'https://api.weatherstack.com/current?access_key=' +
+  'http://api.weatherstack.com/current?access_key=' +
   weatherApiKey +
-  '&query=37.8267,-122.4233';
+  '&query=New%20York';
 
 request({ url: url }, (error, response) => {
-  console.log(response, 'response');
+  const data = JSON.parse(response.body);
+  console.log(data.current);
 });
