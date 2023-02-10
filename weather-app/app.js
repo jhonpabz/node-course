@@ -7,7 +7,7 @@ const url =
   weatherApiKey +
   '&query=New%20York';
 
-request({ url: url }, (error, response) => {
-  const data = JSON.parse(response.body);
-  console.log(data.current);
+request({ url: url, json: true }, (error, response) => {
+  const data = response.body.current;
+  console.log(data);
 });
