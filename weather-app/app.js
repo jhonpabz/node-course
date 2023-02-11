@@ -9,5 +9,16 @@ const url =
 
 request({ url: url, json: true }, (error, response) => {
   const data = response.body.current;
-  console.log(data);
+
+  const temp = data.temperature;
+  const feelsLikeTemp = data.feelslike;
+  const weatherDesc = data.weather_descriptions[0];
+  console.log(
+    weatherDesc +
+      '. It is currently ' +
+      temp +
+      ' degrees out. It feels like ' +
+      feelsLikeTemp +
+      ' degrees out.'
+  );
 });
