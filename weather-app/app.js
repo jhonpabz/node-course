@@ -31,17 +31,24 @@ request({ url: url, json: true }, (error, response) => {
   }
 });
 
-// const geocodeURL =
-//   'http://api.positionstack.com/v1/forward?access_key=' +
-//   POSITIONS_KEY +
-//   '&query=Los%20Angeles';
+const geocodeURL =
+  'http://api.positionstack.com/v1/forward?access_key=' +
+  POSITIONS_KEY +
+  '&query=urdaneta';
 
-// request({ url: geocodeURL, json: true }, (error, response) => {
-//   const result = response.body.data;
+request({ url: geocodeURL, json: true }, (error, response) => {
+  if (error) {
+    console.log('Error');
+  } else if (response.body.error) {
+    const errMessage = response.body.error.message;
+    console.log(errMessage, 'errMessage');
+  } else {
+    const result = response.body.data;
 
-//   const latitude = result[0].latitude;
-//   const longitude = result[0].longitude;
+    const latitude = result[0].latitude;
+    const longitude = result[0].longitude;
 
-//   console.log('Latitude: ', latitude);
-//   console.log('Longitude: ', longitude);
-// });
+    console.log('Latitude: ', latitude);
+    console.log('Longitude: ', longitude);
+  }
+});
