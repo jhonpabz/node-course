@@ -34,7 +34,7 @@ request({ url: url, json: true }, (error, response) => {
 const geocodeURL =
   'http://api.positionstack.com/v1/forward?access_key=' +
   POSITIONS_KEY +
-  '&query=urdaneta';
+  '&query=Urdaneta';
 
 request({ url: geocodeURL, json: true }, (error, response) => {
   if (error) {
@@ -42,6 +42,7 @@ request({ url: geocodeURL, json: true }, (error, response) => {
   } else if (response.body.error) {
     const errMessage = response.body.error.message;
     console.log(errMessage, 'errMessage');
+    console.log('Please enter valid city');
   } else {
     const result = response.body.data;
 
