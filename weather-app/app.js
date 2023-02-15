@@ -1,6 +1,7 @@
 // require('dotenv').config();
 // const request = require('postman-request');
-const geocode = require('./utils/geocode');
+// const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 // const WEATHER_KEY = process.env.WEATHERSTACK_API_KEY;
 // const POSITIONS_KEY = process.env.POSITIONSTACK_API_KEY;
@@ -32,30 +33,22 @@ const geocode = require('./utils/geocode');
 //   }
 // });
 
-// const geocodeURL =
-//   'http://api.positionstack.com/v1/forward?access_key=' +
-//   POSITIONS_KEY +
-//   '&query=Urdaneta';
-
-// request({ url: geocodeURL, json: true }, (error, response) => {
-//   if (error) {
-//     console.log('Unable to connect to location services!');
-//   } else if (response.body.error) {
-//     const errMessage = response.body.error.message;
-//     console.log(errMessage, 'errMessage');
-//     console.log('Please enter valid city');
-//   } else {
-//     const result = response.body.data;
-
-//     const latitude = result[0].latitude;
-//     const longitude = result[0].longitude;
-
-//     console.log('Latitude: ', latitude);
-//     console.log('Longitude: ', longitude);
-//   }
+// geocode('Quezon', (error, data) => {
+//   console.log('Error: ', error);
+//   console.log('Data: ', data);
 // });
 
-geocode('Quezon', (error, data) => {
-  console.log('Error: ', error);
-  console.log('Data: ', data);
+//
+// Goal: Create a reusable function for getting the forecast
+//
+// 1. Setup the "forecast" function in utils/forecast.js
+// 2. Require the function in app.js and call it as shown below
+// 3. The forecast function should have three potential calls to callback:
+//    - Low level error, pass string for error
+//    - Coordinate error, pass string for error
+//    - Success, pass forecast string for data (same format as from before)
+
+forecast(15.980513, 120.45983, (error, data) => {
+  console.log('Error', error);
+  console.log('Data', data);
 });
