@@ -19,7 +19,15 @@ const product = {
   salePrice: undefined,
 };
 
-const { label: productLabel, stock, rating = 5 } = product;
-console.log(productLabel);
-console.log(stock);
-console.log(rating);
+// const { label: productLabel, stock, rating = 5 } = product;
+// console.log(productLabel);
+// console.log(stock);
+// console.log(rating);
+
+// Destructure inside an argument
+
+const transaction = (type, { label, stock }) => {
+  console.log(type, label, stock);
+};
+
+transaction('order', product);
