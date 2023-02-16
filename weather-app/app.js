@@ -1,7 +1,9 @@
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
-geocode('Urdaneta', (error, data) => {
+const arg = process.argv[2];
+
+geocode(arg, (error, data) => {
   if (error) {
     return console.log(error);
   }
@@ -14,3 +16,5 @@ geocode('Urdaneta', (error, data) => {
     console.log('Forecast Data: ', data);
   });
 });
+
+console.log(arg);
