@@ -11,19 +11,19 @@ const forecast = (latitude, longitude, callback) => {
     ',' +
     longitude;
 
-  request({ url: url, json: true }, (error, response) => {
+  request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback('Unable to connect to weather service!', undefined);
-    } else if (response.body.length === 0) {
-      callback(response.body.error?.info, undefined);
+    } else if (body.length === 0) {
+      callback(body.error?.info, undefined);
     } else {
       callback(undefined, {
-        temp: response.body.current.temperature,
-        feelsLikeTemp: response.body.current.feelslike,
-        weatherDesc: response.body.current.weather_descriptions[0],
-        location: response.body.location.name,
-        region: response.body.location.region,
-        country: response.body.location.country,
+        temp: body.current.temperature,
+        feelsLikeTemp: body.current.feelslike,
+        weatherDesc: body.current.weather_descriptions[0],
+        location: body.location.name,
+        region: body.location.region,
+        country: body.location.country,
       });
     }
   });
