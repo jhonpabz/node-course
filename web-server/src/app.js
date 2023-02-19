@@ -4,11 +4,14 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('<h1>zxcv</h1>');
 });
 
 app.get('/help', (req, res) => {
-  res.send('Help page');
+  res.send({
+    name: 'Jhon',
+    age: 26,
+  });
 });
 
 app.get('/about', (req, res) => {
