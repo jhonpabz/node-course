@@ -15,11 +15,15 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.send('About page');
+  res.send('<h2>About us Page</h2>');
 });
 
 app.get('/weather', (req, res) => {
-  res.send('Weather app page');
+  res.send({
+    temp: '36 deg',
+    feelslike: '37 deg',
+    location: 'Quezon City',
+  });
 });
 
 app.listen(port, () => {
