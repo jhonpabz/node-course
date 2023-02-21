@@ -5,3 +5,6 @@ body {
   font-family: 'Mynerve', cursive;
   color: #e9f8f9;
 }
+img {
+  border-radius: 50%;
+}
