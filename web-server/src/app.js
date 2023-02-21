@@ -7,20 +7,9 @@ const publicDirPath = path.join(__dirname, '../public');
 
 app.use(express.static(publicDirPath));
 
-app.get('/', (req, res) => {
-  res.send('<h1>zxcv</h1>');
-});
+app.use('/help', express.static(path.join(__dirname, '../public/help.html')));
 
-app.get('/help', (req, res) => {
-  res.send({
-    name: 'Jhon',
-    age: 26,
-  });
-});
-
-app.get('/about', (req, res) => {
-  res.send('<h2>About us Page</h2>');
-});
+app.use('/about', express.static(path.join(__dirname, '../public/about.html')));
 
 app.get('/weather', (req, res) => {
   res.send({
