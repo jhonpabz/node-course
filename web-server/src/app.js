@@ -9,7 +9,10 @@ app.set('view engine', 'hbs');
 app.use(express.static(publicDirPath));
 
 app.get('', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    title: 'Weather App',
+    name: 'Jhon Pabz',
+  });
 });
 // app.use('/help', express.static(path.join(__dirname, '../public/help.html')));
 
