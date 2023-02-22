@@ -14,6 +14,13 @@ app.get('', (req, res) => {
     name: 'Jhon Pabz',
   });
 });
+
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About Me',
+    name: 'Jhon Pabz',
+  });
+});
 // app.use('/help', express.static(path.join(__dirname, '../public/help.html')));
 
 // app.use('/about', express.static(path.join(__dirname, '../public/about.html')));
