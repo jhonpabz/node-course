@@ -3,7 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 const app = express();
-const port = 8000;
+const port = 3000;
 
 // Define paths for Express config
 const publicDirPath = path.join(__dirname, '../public/');
