@@ -40,9 +40,13 @@ app.get('/help', (req, res) => {
     name: 'Jhon Pabz',
   });
 });
-// app.use('/help', express.static(path.join(__dirname, '../public/help.html')));
 
-// app.use('/about', express.static(path.join(__dirname, '../public/about.html')));
+app.get('*', (req, res) => {
+  res.render('404', {
+    title: '404',
+    name: 'Jhon Pabz',
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
