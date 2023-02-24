@@ -41,6 +41,13 @@ app.get('/help', (req, res) => {
   });
 });
 
+app.get('/help/*', (req, res) => {
+  res.render('help404', {
+    title: '404',
+    name: 'Jhon Pabz',
+  });
+});
+
 app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
