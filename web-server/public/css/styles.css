@@ -4,7 +4,12 @@ body {
   background-color: #181823;
   font-family: 'Mynerve', cursive;
   color: #e9f8f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-img {
+img.avatar {
   border-radius: 50%;
+  height: 150px !important;
+  width: 150px !important;
 }
