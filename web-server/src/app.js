@@ -42,9 +42,10 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/help/*', (req, res) => {
-  res.render('help404', {
+  res.render('404', {
     title: '404',
     name: 'Jhon Pabz',
+    errorMessage: 'Sorry, help article not found.',
   });
 });
 
@@ -52,6 +53,8 @@ app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
     name: 'Jhon Pabz',
+    errorMessage: `Sorry, we couldn't find
+    this page.`,
   });
 });
 
