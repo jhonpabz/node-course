@@ -25,6 +25,20 @@ app.get('', (req, res) => {
   });
 });
 
+app.get('/weather', (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      error: 'Address is required!',
+    });
+  }
+
+  res.send({
+    forecast: 'It is snowing',
+    location: 'Quezon',
+    address: req.query.address,
+  });
+});
+
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About Me',
