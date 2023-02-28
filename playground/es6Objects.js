@@ -26,8 +26,11 @@ const product = {
 
 // Destructure inside an argument
 
-const transaction = (type, { label, stock }) => {
+const transaction = (type, { label, stock } = {}) => {
   console.log(type, label, stock);
 };
 
 transaction('order', product);
+
+// To test error if no test value
+// transaction('order');
