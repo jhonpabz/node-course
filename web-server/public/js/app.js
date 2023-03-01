@@ -9,6 +9,9 @@ console.log('Client side js file');
 
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
+const messageOne = document.getElementById('p1');
+const messageTwo = document.getElementById('p2');
+const messageThree = document.getElementById('p3');
 
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -21,6 +24,9 @@ weatherForm.addEventListener('submit', (e) => {
           console.log('Error: ', data.error);
         } else {
           console.log('weather', data);
+          messageOne.textContent = 'Weather: ' + data.weatherDesc;
+          messageTwo.textContent = 'Temperature: ' + data.temp + ' °';
+          messageThree.textContent = 'Location: ' + data.location;
         }
       });
     }
