@@ -11,13 +11,16 @@
     />
     <link rel="icon" href="/img/weather.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src='./js/app.js'></script>
+   
     <title>Weather</title>
   </head>
   <body>
     {{>header}}
-      
+      <form onsubmit="">
+       <input type="text" placeholder="Location" class="input input-bordered input-info w-full max-w-xs" />
+       <button type="submit" class="btn btn-outline btn-info">Search</button>
+      </form>
     {{>footer}}
-
+  <script src='./js/app.js'></script>
   </body>
 </html>
