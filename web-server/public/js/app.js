@@ -7,11 +7,12 @@ console.log('Client side js file');
 //   });
 // });
 
-fetch('http://localhost:3000/weather?address=makati').then((response) => {
+fetch('http://localhost:3000/weather?address=!').then((response) => {
   response.json().then((data) => {
-    console.log('weather', data);
+    if (data.error) {
+      console.log('Error: ', data.error);
+    } else {
+      console.log('weather', data);
+    }
   });
-  // .catch((err) => {
-  //   console.log('error', err);
-  // });
 });
