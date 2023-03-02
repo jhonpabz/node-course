@@ -16,12 +16,14 @@ const messageThree = document.getElementById('p3');
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const location = search.value;
-
+  messageOne.textContent = 'Loading...';
+  messageTwo.textContent = '';
+  messageThree.textContent = '';
   fetch('http://localhost:3000/weather?address=' + location).then(
     (response) => {
       response.json().then((data) => {
         if (data.error) {
-          console.log('Error: ', data.error);
+          messageOne.textContent = data.error;
         } else {
           console.log('weather', data);
           messageOne.textContent = 'Weather: ' + data.weatherDesc;
